@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="https://suiyueliushang.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://suiyueliushang.github.io/"/>
+  <updated>2023-04-23T12:40:45.597Z</updated>
+  <id>https://suiyueliushang.github.io/</id>
+  
+  <author>
+    <name>suiyueliushang</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring学习笔记</title>
+    <link href="https://suiyueliushang.github.io/2023/04/22/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://suiyueliushang.github.io/2023/04/22/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2023-04-22T10:02:02.000Z</published>
+    <updated>2023-04-23T12:40:45.597Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="spring-框架概述"><a href="#spring-框架概述" class="headerlink" title="spring 框架概述"></a>spring 框架概述</h2><ul><li>spring是一个开源的轻量级的javaEE框架</li><li>spring可以解决企业应用开发的复杂性</li><li>spring有两个核心部分：IOC和AOP<ul><li>IOC：控制反转，把创建对象的过程交给spring进行管理</li><li>AOP：面向切面，不修改源代码进行功能增强</li></ul></li><li>spring优点：<ul><li>方便解耦，简化开发</li><li>AOP编程支持</li><li>方便程序测试</li><li>方便和其他框架进行整合</li><li>方便进行事务操作</li><li>降低API开发难度</li></ul></li></ul><h2 id="IOC容器"><a href="#IOC容器" class="headerlink" title="IOC容器"></a>IOC容器</h2><ol><li>IOC底层原理</li><li>IOC接口</li><li>IOC操作Bean管理（基于xlm）</li><li>ICO操作Bean管理（基于注解）</li></ol><h3 id="IOC底层原理"><a href="#IOC底层原理" class="headerlink" title="IOC底层原理"></a>IOC底层原理</h3><h4 id="什么是IOC"><a href="#什么是IOC" class="headerlink" title="什么是IOC"></a>什么是IOC</h4><p>（1）控制反转，把对象创建喝对象之间的调用过程，交给Spring管理<br>（2）使用IOC的目的：为了降低耦合度</p><h4 id="IOC底层原理-1"><a href="#IOC底层原理-1" class="headerlink" title="IOC底层原理"></a>IOC底层原理</h4><ol><li>IOC底层原理：反射+工厂模式</li></ol><h3 id="IOC接口"><a href="#IOC接口" class="headerlink" title="IOC接口"></a>IOC接口</h3><ol><li>IOC思想基于<strong>IOC容器</strong>实现，IOC容器底层就是<strong>对象工厂</strong></li><li>Spring提供IOC容器实现两种方式：（两个接口）<ul><li>BeanFactory： IOC容器的基本实现，是Spring内部使用接口，不提供开发人员使用（加载配置文件的时候不会创建对象，在获取对象的时候才会创建对象）</li><li>ApplicationContext：BeanFactory的子接口，提供更多更强大的功能，一般由开发人员使用（加载配置文件的时候就会创建）耗时耗力的事情在开始完成</li></ul></li><li>ApplicationContext有实现类</li></ol><h2 id="IOC操作Bean管理"><a href="#IOC操作Bean管理" class="headerlink" title="IOC操作Bean管理"></a>IOC操作Bean管理</h2><h3 id="Bean管理"><a href="#Bean管理" class="headerlink" title="Bean管理"></a>Bean管理</h3><p>（1）创建对象</p><p>（2）注入属性</p><h3 id="Bean管理操作实现方式"><a href="#Bean管理操作实现方式" class="headerlink" title="Bean管理操作实现方式"></a>Bean管理操作实现方式</h3><ol><li>基于xml配置文件方式</li><li>基于注解方式</li></ol><h4 id="基于xml方式创建对象"><a href="#基于xml方式创建对象" class="headerlink" title="基于xml方式创建对象"></a>基于xml方式创建对象</h4><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置user对象属性--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;user&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.spring.User&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></div><blockquote><ul><li>创建对象的时候，默认也是执行无参构造方法完成对象创建</li></ul></blockquote><h4 id="基于xml方式注入属性"><a href="#基于xml方式注入属性" class="headerlink" title="基于xml方式注入属性"></a>基于xml方式注入属性</h4><blockquote><p>依赖注入（DI）：注入属性</p></blockquote><ul><li><strong>使用set进行注入</strong></li></ul><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--使用set进行属性注入，需要写set函数--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;user&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.spring.User&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;属性名&quot;</span> <span class="attr">value</span>=<span class="string">&quot;属性值&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></div><ul><li><strong>使用有参数构造方法进行注入</strong></li></ul><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--使用set进行属性注入，需要写set函数--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;user&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.spring.User&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;属性名&quot;</span> <span class="attr">value</span>=<span class="string">&quot;属性值&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;spring-框架概述&quot;&gt;&lt;a href=&quot;#spring-框架概述&quot; class=&quot;headerlink&quot; title=&quot;spring 框架概述&quot;&gt;&lt;/a&gt;spring 框架概述&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;spring是一个开源的轻量级的javaEE框架&lt;/li</summary>
+      
+    
+    
+    
+    
+    <category term="Spring" scheme="https://suiyueliushang.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+</feed>
