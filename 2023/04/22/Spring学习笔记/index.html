@@ -25,11 +25,15 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="spring 框架概述 spring是一个开源的轻量级的javaEE框架 spring可以解决企业应用开发的复杂性 spring有两个核心部分：IOC和AOP IOC：控制反转，把创建对象的过程交给spring进行管理 AOP：面向切面，不修改源代码进行功能增强   spring优点： 方便解耦，简化开发 AOP编程支持 方便程序测试 方便和其他框架进行整合 方便进行事务操作 降低API开发难度">
 <meta property="og:locale">
+<meta property="og:image" content="https://suiyueliushang.github.io/images/springFramework.png">
+<meta property="og:image" content="https://suiyueliushang.github.io/images%5CSpringIOC.png">
+<meta property="og:image" content="https://suiyueliushang.github.io/images/Bean.png">
 <meta property="article:published_time" content="2023-04-22T10:02:02.000Z">
-<meta property="article:modified_time" content="2023-04-23T12:40:45.597Z">
+<meta property="article:modified_time" content="2023-04-27T08:23:17.779Z">
 <meta property="article:author" content="suiyueliushang">
 <meta property="article:tag" content="Spring">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://suiyueliushang.github.io/images/springFramework.png">
     
     <!--- Icon Part-->
     <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
@@ -65,7 +69,7 @@
     <script id="hexo-configurations">
     let Global = window.Global || {};
     Global.hexo_config = {"hostname":"suiyueliushang.github.io","root":"/","language":"zh"};
-    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[""]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":true,"family":null,"url":null},"english":{"enable":true,"family":null,"url":null}},"content_max_width":"1200px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true},"home_banner":{"enable":true,"image":{"light":"/images/mainBackground.webp","dark":"/images/mainBackground.webp"},"title":"心之所向，一往无前","subtitle":{"text":["Nobody else can define you but yourself"],"hitokoto":{"enable":true,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"3rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/suiyueliushang","bilibili":"https://space.bilibili.com/258590045","instagram":null,"zhihu":null,"twitter":null,"email":"2837644648@qq.com"}}},"plugins":{"feed":{"enable":true},"aplayer":{"enable":false,"type":"mini","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":true,"version":"9.3.0"},"live2d":null,"enable":true,"scriptFrom":"local","pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":true,"log":true,"model":{"use":"live2d-widget-model-wanko","scale":1,"hHeadPos":0.5,"vHeadPos":0.618},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2}},"version":"2.1.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":5},"tags":{"enable":true,"limit":5}}};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[""]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":true,"family":null,"url":null},"english":{"enable":true,"family":null,"url":null}},"content_max_width":"1200px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true},"home_banner":{"enable":true,"image":{"light":"/images/mainBackground.webp","dark":"/images/mainBackground.webp"},"title":"心之所向，一往无前","subtitle":{"text":["Nobody else can define you but yourself"],"hitokoto":{"enable":true,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"3rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/suiyueliushang","bilibili":"https://space.bilibili.com/258590045","instagram":null,"zhihu":null,"twitter":null,"email":"2837644648@qq.com"}}},"plugins":{"feed":{"enable":true},"aplayer":{"enable":false,"type":"mini","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":true,"version":"9.3.0"},"live2d":null,"enable":true,"scriptFrom":"local","pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":true,"log":true,"model":{"use":"live2d-widget-model-wanko","scale":0.5,"hHeadPos":0.5,"vHeadPos":0.618},"display":{"superSample":1,"width":150,"height":300,"position":"right","hOffset":500,"vOffset":-500},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2}},"version":"2.1.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":5},"tags":{"enable":true,"limit":5}}};
     Global.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
     
@@ -138,7 +142,7 @@
                                         
                                             <i class="fa-regular fa-house"></i>
                                         
-                                        HOME
+                                        首页
                                     
                                 </a>
                                 <!-- Submenu -->
@@ -176,7 +180,7 @@
                                 
                                     <i class="fa-regular fa-house"></i>
                                 
-                                HOME
+                                首页
                             
                         </a>
                     </li>
@@ -232,14 +236,14 @@
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
         <span class="desktop">2023-04-22 18:02:02</span>
         <span class="mobile">2023-04-22 18:02</span>
-        <span class="hover-info">Created</span>
+        <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-04-23 20:40:45</span>
-            <span class="mobile">2023-04-23 20:40</span>
-            <span class="hover-info">Updated</span>
+            <span class="desktop">2023-04-27 16:23:17</span>
+            <span class="mobile">2023-04-27 16:23</span>
+            <span class="hover-info">更新</span>
         </span>
     
 
@@ -291,13 +295,25 @@
 </ul>
 </li>
 </ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/springFramework.png"
+                     
+                ></p>
 <h2 id="IOC容器"><a href="#IOC容器" class="headerlink" title="IOC容器"></a>IOC容器</h2><ol>
 <li>IOC底层原理</li>
 <li>IOC接口</li>
 <li>IOC操作Bean管理（基于xlm）</li>
 <li>ICO操作Bean管理（基于注解）</li>
 </ol>
-<h3 id="IOC底层原理"><a href="#IOC底层原理" class="headerlink" title="IOC底层原理"></a>IOC底层原理</h3><h4 id="什么是IOC"><a href="#什么是IOC" class="headerlink" title="什么是IOC"></a>什么是IOC</h4><p>（1）控制反转，把对象创建喝对象之间的调用过程，交给Spring管理<br>（2）使用IOC的目的：为了降低耦合度</p>
+<h3 id="IOC底层原理"><a href="#IOC底层原理" class="headerlink" title="IOC底层原理"></a>IOC底层原理</h3><h4 id="什么是IOC"><a href="#什么是IOC" class="headerlink" title="什么是IOC"></a>什么是IOC</h4><p>（1）控制反转，把对象创建和对象之间的调用过程，交给Spring管理<br>（2）使用IOC的目的：为了降低耦合度</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images%5CSpringIOC.png"
+                     
+                ></p>
 <h4 id="IOC底层原理-1"><a href="#IOC底层原理-1" class="headerlink" title="IOC底层原理"></a>IOC底层原理</h4><ol>
 <li>IOC底层原理：反射+工厂模式</li>
 </ol>
@@ -310,11 +326,21 @@
 </li>
 <li>ApplicationContext有实现类</li>
 </ol>
-<h2 id="IOC操作Bean管理"><a href="#IOC操作Bean管理" class="headerlink" title="IOC操作Bean管理"></a>IOC操作Bean管理</h2><h3 id="Bean管理"><a href="#Bean管理" class="headerlink" title="Bean管理"></a>Bean管理</h3><p>（1）创建对象</p>
+<h2 id="IOC操作Bean管理"><a href="#IOC操作Bean管理" class="headerlink" title="IOC操作Bean管理"></a>IOC操作Bean管理</h2><h3 id="什么是bean"><a href="#什么是bean" class="headerlink" title="什么是bean"></a>什么是bean</h3><p>简单来说，bean就是哪些<strong>被IoC容器所管理的对象</strong>。我们需要告诉IoC容器帮助我们管理哪些对象，这个是通过配置元数据来定义的。配置元数据可以是XML、注解或者java配置类。</p>
+<h3 id="Bean管理"><a href="#Bean管理" class="headerlink" title="Bean管理"></a>Bean管理</h3><p>（1）创建对象</p>
 <p>（2）注入属性</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/Bean.png"
+                     
+                ></p>
+<blockquote>
+<p><code>org.springframework.context</code>和<code>org.springframework.context</code>这两个包是IoC实现的基础</p>
+</blockquote>
 <h3 id="Bean管理操作实现方式"><a href="#Bean管理操作实现方式" class="headerlink" title="Bean管理操作实现方式"></a>Bean管理操作实现方式</h3><ol>
-<li>基于xml配置文件方式</li>
-<li>基于注解方式</li>
+<li><strong>基于xml配置文件方式</strong></li>
+<li><strong>基于注解方式</strong></li>
 </ol>
 <h4 id="基于xml方式创建对象"><a href="#基于xml方式创建对象" class="headerlink" title="基于xml方式创建对象"></a>基于xml方式创建对象</h4><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置user对象属性--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;user&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.spring.User&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 
@@ -329,15 +355,78 @@
 <ul>
 <li><strong>使用set进行注入</strong></li>
 </ul>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--使用set进行属性注入，需要写set函数--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;user&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.spring.User&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;属性名&quot;</span> <span class="attr">value</span>=<span class="string">&quot;属性值&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--使用set进行属性注入，需要写set函数--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;user&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.spring.User&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;属性名&quot;</span> <span class="attr">value</span>=<span class="string">&quot;属性值&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 
 <ul>
 <li><strong>使用有参数构造方法进行注入</strong></li>
 </ul>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--使用set进行属性注入，需要写set函数--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;user&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.spring.User&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;属性名&quot;</span> <span class="attr">value</span>=<span class="string">&quot;属性值&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--使用有参构造函数方式进行注入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;user&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.spring.User&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">consturctor-arg</span> <span class="attr">name</span>=<span class="string">&quot;属性名&quot;</span> <span class="attr">value</span>=<span class="string">&quot;属性值&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 
+<blockquote>
+<p>两种方式对比</p>
+</blockquote>
+<ul>
+<li><p>p名称空间注入 </p>
+<p>只是简化xml配置的一种写法</p>
+</li>
+</ul>
+<h4 id="基于xml方式注入其他类型的属性"><a href="#基于xml方式注入其他类型的属性" class="headerlink" title="基于xml方式注入其他类型的属性"></a>基于xml方式注入其他类型的属性</h4><ol>
+<li><p>字面量</p>
+<ol>
+<li>null</li>
+</ol>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;属性名&quot;</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">null</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">null</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 
+<ol start="2">
+<li><p>特殊符号(包含&lt;，&gt;等)</p>
+<pre><code>        - 把特殊符号进行转义：&amp;lt,&amp;gt
 
+        - 把特殊符号写入![CDATA[]]中
+</code></pre>
+</li>
+<li><p>注入集合</p>
+</li>
+</ol>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;student&quot;</span>,<span class="attr">class</span>=<span class="string">&quot;com.spring.Student&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">preperty</span> <span class="attr">name</span>=<span class="string">&quot;list&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">value</span>&gt;</span>java课程<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">value</span>&gt;</span>数据库<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">preperty</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--map属性注入--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maps&quot;</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">map</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">&quot;&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">entry</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">map</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">preperty</span> <span class="attr">name</span>=<span class="string">&quot;sets&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">value</span>&gt;</span>java课程<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">value</span>&gt;</span>数据库<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">preperty</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<pre><code>4. 注入对象集合
+</code></pre>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--集合中要保存的对象--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;couese1&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.spring.collection.Couese&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;cname&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Spring5框架&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;couese2&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.spring.collection.Couese&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;cname&quot;</span> <span class="attr">value</span>=<span class="string">&quot;MyBatis框架&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--对象集合--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;courseList&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">&quot;couese1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ref</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">&quot;couese2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ref</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="注入属性-外部bean"><a href="#注入属性-外部bean" class="headerlink" title="注入属性-外部bean"></a>注入属性-外部bean</h4><p>注入对象类型的属性</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--对象参数注入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;service&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.spring.Service&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;userDAO&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;userdao&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;userdao&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.spring.UserDAO&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="注入属性-内部bean"><a href="#注入属性-内部bean" class="headerlink" title="注入属性-内部bean"></a>注入属性-内部bean</h4><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--对象参数注入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;service&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.spring.Service&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;userDAO&quot;</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;userdao&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.spring.UserDAO&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<h4 id="基于注解的方式"><a href="#基于注解的方式" class="headerlink" title="基于注解的方式"></a>基于注解的方式</h4><h5 id="将一个类声明为-Bean-的注解"><a href="#将一个类声明为-Bean-的注解" class="headerlink" title="将一个类声明为 Bean 的注解"></a>将一个类声明为 Bean 的注解</h5><ol>
+<li><p><code>@Component</code> :通用的注解，可以标注任意类为Spring组件</p>
+</li>
+<li><p><code>@Repository</code> :对应持久化层即Dao层，主要用于数据库相关操作</p>
+</li>
+<li><p><code>@Service</code> ：对应服务层</p>
+</li>
+<li><p><code>@Controller</code>：对应Spring MVC控制层，主要用于接受用户请求并调用Service层返回数据给前端页面</p>
+</li>
+</ol>
+<h5 id="Component-和-Bean-的区别是什么"><a href="#Component-和-Bean-的区别是什么" class="headerlink" title="@Component 和@Bean 的区别是什么"></a><code>@Component</code> 和<code>@Bean</code> 的区别是什么</h5><ul>
+<li><code>@Component</code> 注解作用于类，而<code>@Bean</code>注解作用于方法</li>
+<li><code>@Component</code>通常是通过类路径扫描来自动侦测以及自动装配到 Spring 容器中（我们可以使用 <code>@ComponentScan</code> 注解定义要扫描的路径从中找出标识了需要装配的类自动装配到 Spring 的 bean 容器中）。<code>@Bean</code> 注解通常是我们在标有该注解的方法中定义产生这个 bean,<code>@Bean</code>告诉了 Spring 这是某个类的实例，当我需要用它的时候还给我。</li>
+<li><code>@Bean</code> 注解比 <code>@Component</code> 注解的自定义性更强，而且很多地方我们只能通过 <code>@Bean</code> 注解来注册 bean。比如当我们引用第三方库中的类需要装配到 <code>Spring</code>容器时，则只能通过 <code>@Bean</code>来实现。</li>
+</ul>
+<blockquote>
+<p><code>@Bean</code>注解使用实例：</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AppConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> TransferService <span class="title function_">transferService</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">TransferServiceImpl</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>相当于下面的<code>XML</code>配置：</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;transferService&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.acme.TransferServiceImpl&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>下面这段通过<code>@Component</code>无法实现</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> OneService <span class="title function_">getService</span><span class="params">(status)</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> (status)  &#123;</span><br><span class="line">        when <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">serviceImpl1</span>();</span><br><span class="line">        when <span class="number">2</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">serviceImpl2</span>();</span><br><span class="line">        when <span class="number">3</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">serviceImpl3</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>[Spring常见面试题总结](<a class="link"   target="_blank" rel="noopener" href="https://javaguide.cn/system-design/framework/spring/spring-knowledge-and-questions-summary.html#%E5%A6%82%E4%BD%95%E5%AF%B9%E5%AF%86%E7%A0%81%E8%BF%9B%E8%A1%8C%E5%8A%A0%E5%AF%86" >Spring常见面试题总结 | JavaGuide(Java面试+学习指南) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>)</li>
+<li><a href="%5B11_IOC%E5%AE%B9%E5%99%A8-Bean%E7%AE%A1%E7%90%86XML%E6%96%B9%E5%BC%8F%EF%BC%88%E6%B3%A8%E5%85%A5%E5%A4%96%E9%83%A8bean%EF%BC%89_%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9_bilibili%5D(https://www.bilibili.com/video/BV1Vf4y127N5/?p=11&spm_id_from=pageDriver&vd_source=cf0df5322802129face9bb48150ec960)">bilibili尚硅谷Spring教程</a></li>
+</ul>
 
             </div>
 
@@ -345,19 +434,19 @@
                 <div class="post-copyright-info">
                     <div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> Spring学习笔记</li>
-        <li><strong>Author:</strong> suiyueliushang</li>
-        <li><strong>Created at:</strong> 2023-04-22 18:02:02</li>
+        <li><strong>标题:</strong> Spring学习笔记</li>
+        <li><strong>作者:</strong> suiyueliushang</li>
+        <li><strong>创建于:</strong> 2023-04-22 18:02:02</li>
         
             <li>
-                <strong>Updated at:</strong> 2023-04-23 20:40:45
+                <strong>更新于:</strong> 2023-04-27 16:23:17
             </li>
         
         <li>
-            <strong>Link:</strong> https://suiyueliushang.github.io/2023/04/22/Spring学习笔记/
+            <strong>链接:</strong> https://suiyueliushang.github.io/2023/04/22/Spring学习笔记/
         </li>
         <li>
-            <strong>License:</strong> This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
+            <strong>版权声明:</strong> 本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 进行许可。
         </li>
     </ul>
 </div>
@@ -378,6 +467,26 @@
             
 
             
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2023/05/03/%E5%9F%BA%E4%BA%8Eecharts%E7%BB%98%E5%88%B6%E4%BA%BA%E5%8F%A3%E7%83%AD%E5%8A%9B%E5%9B%BE/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">基于echarts绘制人口热力图</span>
+                                    <span class="post-nav-item">上一篇</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                </div>
+            
 
 
             
@@ -385,7 +494,7 @@
                     <div class="comments-container">
     <div id="comment-anchor"></div>
     <div class="comment-area-title">
-        <i class="fa-solid fa-comments"></i>&nbsp;Comments
+        <i class="fa-solid fa-comments"></i>&nbsp;评论
     </div>
     
 
@@ -444,9 +553,9 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <div class="toc-title">On this page</div>
+        <div class="toc-title">此页目录</div>
         <div class="page-title">Spring学习笔记</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0"><span class="nav-text">spring 框架概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IOC%E5%AE%B9%E5%99%A8"><span class="nav-text">IOC容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IOC%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="nav-text">IOC底层原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IOC%E6%8E%A5%E5%8F%A3"><span class="nav-text">IOC接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IOC%E6%93%8D%E4%BD%9CBean%E7%AE%A1%E7%90%86"><span class="nav-text">IOC操作Bean管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean%E7%AE%A1%E7%90%86"><span class="nav-text">Bean管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean%E7%AE%A1%E7%90%86%E6%93%8D%E4%BD%9C%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">Bean管理操作实现方式</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0"><span class="nav-text">spring 框架概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IOC%E5%AE%B9%E5%99%A8"><span class="nav-text">IOC容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IOC%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="nav-text">IOC底层原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IOC%E6%8E%A5%E5%8F%A3"><span class="nav-text">IOC接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IOC%E6%93%8D%E4%BD%9CBean%E7%AE%A1%E7%90%86"><span class="nav-text">IOC操作Bean管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFbean"><span class="nav-text">什么是bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean%E7%AE%A1%E7%90%86"><span class="nav-text">Bean管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean%E7%AE%A1%E7%90%86%E6%93%8D%E4%BD%9C%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">Bean管理操作实现方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol>
 
     </div>
 </div>
@@ -480,20 +589,20 @@
             <div class="website-count info-item">
                 
                     <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
-                        VISITOR COUNT&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
                     </span>
                 
                 
                     <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
-                        TOTAL PAGE VIEWS&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
                     </span>
                 
             </div>
         
         <div class="theme-info info-item">
-            <span class="powered-by-container">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a></span>
+            <span class="powered-by-container">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a> 驱动</span>
                 <br>
-            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.1.2</a>
+            <span class="theme-version-container">主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.1.2</a>
         </div>
         
             <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="
@@ -508,7 +617,7 @@
                 2023/4/1 00:00:00
             </div>
             <div>
-                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
             </div>
         
         
@@ -629,7 +738,7 @@
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="Search..."
+                       placeholder="搜索..."
                        spellcheck="false"
                        type="search"
                        class="search-input"
